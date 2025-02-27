@@ -1,4 +1,10 @@
-paymentType = input("What type of payment option do you want to calculate?")
+listOfPaymentType = ["Loan Payment", "Compound Interest", "Savings Growth"]
+
+print(f"Welcome, Please choose from the option below the type of calculation you want to perform \n")
+for i in listOfPaymentType:
+    print(f"{i}\n")
+
+paymentType = input("What type of payment option do you want to calculate? ")
 
 #Loan Payment
 def loanCalculation():
@@ -13,7 +19,7 @@ def loanCalculation():
 
     MonthlyPayment = num / denom
 
-    print(f"Monthly Payment: ${MonthlyPayment}")
+    print(f"Monthly Payment: SLE{round(MonthlyPayment, 2)}")
 
 #Compund Interest Function
 def compoundInterestCal():
@@ -24,7 +30,7 @@ def compoundInterestCal():
     Annual_Rate_Decimal = AnnualRate / 100
     FutureValue = PrincipalAmount * (1 + (Annual_Rate_Decimal/TimesCompound))**(TimesCompound * YearsInvested)
 
-    print(f"The Future Value of the Investment: ${FutureValue}")
+    print(f"The Future Value of the Investment: SLE{round(FutureValue, 2)}")
 
 #Savings growth
 def SavingsGrowth():
@@ -39,7 +45,7 @@ def SavingsGrowth():
 
     FutureSavings = FutureInvestmentValue + (MonthlyContribution * ((1 + (AnnualInterestRateDecimal/NumberOfInterests))**TotalMonths-1)/(AnnualInterestRateDecimal/NumberOfInterests))
 
-    print(f"Future Savings: ${FutureSavings}")
+    print(f"Future Savings: SLE{round(FutureSavings)}")
 
 if paymentType == "LOANPAYMENT":
     loanCalculation()
